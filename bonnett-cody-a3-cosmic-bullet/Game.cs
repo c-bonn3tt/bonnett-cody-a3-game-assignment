@@ -18,6 +18,9 @@ namespace MohawkGame2D
         /// </summary>
         public void Setup()
         {
+            Window.SetTitle("Cosmic Bullet");
+            Window.SetSize(800, 600);
+
 
         }
 
@@ -26,6 +29,7 @@ namespace MohawkGame2D
         /// </summary>
         public void Update()
         {
+            Window.ClearBackground(Color.Black);
 
         }
     }
