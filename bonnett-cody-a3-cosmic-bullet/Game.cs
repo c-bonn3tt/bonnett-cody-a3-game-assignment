@@ -11,7 +11,7 @@ namespace MohawkGame2D
     public class Game
     {
         // Place your variables here:
-
+        Player ship;
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -21,7 +21,8 @@ namespace MohawkGame2D
             Window.SetTitle("Cosmic Bullet");
             Window.SetSize(800, 600);
 
-
+            ship = new Player();
+            ship.SetUp();
         }
 
         /// <summary>
@@ -30,7 +31,7 @@ namespace MohawkGame2D
         public void Update()
         {
             Window.ClearBackground(Color.Black);
-
+            ship.Update();
         }
     }
 

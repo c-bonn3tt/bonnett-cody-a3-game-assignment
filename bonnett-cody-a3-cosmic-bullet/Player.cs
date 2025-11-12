@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MohawkGame2D
 {
-    public class Spaceship
+    public class Player
     {
 
         public void SetUp()
@@ -16,7 +16,8 @@ namespace MohawkGame2D
 
         public void Update()
         {
-
+            Draw.FillColor = Color.White;
+            Draw.Rectangle(200, 300, 30, 20);
         }
     }
 }
