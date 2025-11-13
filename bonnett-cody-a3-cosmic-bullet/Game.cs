@@ -1,5 +1,6 @@
 ﻿// Include the namespaces (code libraries) you need below.
 using System;
+using System.IO;
 using System.Numerics;
 
 // The namespace your code is in.
@@ -12,6 +13,8 @@ namespace MohawkGame2D
     {
         // Place your variables here:
         Player ship;
+        Rocket[] rockets = new Rocket[4];
+        int rocketIndex = 0;
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -32,7 +35,48 @@ namespace MohawkGame2D
         {
             Window.ClearBackground(Color.Black);
             ship.Update();
+            int ammo = 0;
+
+            if (Input.IsKeyboardKeyPressed(KeyboardInput.Space)) SpawnRocket();
+            for (int i = 0; i < rockets.Length; i++)
+            {
+                //skip the rocket if not spawned yet
+                if (rockets[i] == null)
+                {
+                    ammo++;
+                    continue;
+                }
+                rockets[i].Update();
+
+                if (Input.IsKeyboardKeyPressed(KeyboardInput.R))
+                {
+                    rockets = new Rocket[4];
+                }
+
+            }
         }
+
+        void SpawnRocket()
+        {
+
+            if (rockets[rocketIndex] != null) return;
+
+            Rocket rocket = new Rocket();
+            
+            //position for rockets to come from player
+            Vector2 centerScreen = Window.Size / 2.0f;
+
+            rocket.position = centerScreen;
+
+            Vector2 centerToMouse = Input.GetMousePosition() - centerScreen;
+            rocket.velocity = Vector2.Normalize(centerToMouse);
+
+            rockets[rocketIndex] = rocket;
+            rocketIndex++;
+
+            if (rocketIndex >= rockets.Length) rocketIndex = 0;
+        }
+
     }
 
 }

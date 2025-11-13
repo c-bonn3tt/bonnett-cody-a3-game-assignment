@@ -7,20 +7,21 @@ using System.Threading.Tasks;
 
 namespace MohawkGame2D
 {
-    public class Meteors
+    public class Background
     {
         Vector2 position;
-        Vector2 collision;
+        Vector2 velocity;
         Texture2D texture;
-
         public void SetUp()
         {
-            texture = Graphics.LoadTexture("Textures/ship1.png");
+            texture = Graphics.LoadTexture("Textures/background.png");
         }
 
         public void Update()
         {
-
+            Graphics.Rotation = 0.0f;
+            Graphics.Scale = 0.15f;
+            Graphics.Draw(texture, position);
         }
     }
 }
