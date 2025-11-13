@@ -22,10 +22,5 @@ namespace MohawkGame2D
             Graphics.Scale = 0.15f;
             Graphics.Draw(texture, position);
         }
-
-        void DrawShip()
-        {
-        
-        }
     }
 }

@@ -25,7 +25,11 @@ namespace MohawkGame2D
             Window.SetSize(800, 600);
 
             ship = new Player();
-            ship.SetUp();
+            ship.Setup();
+            for (int i = 0; i < rockets.Length; i++)
+            {
+
+            }
         }
 
         /// <summary>
