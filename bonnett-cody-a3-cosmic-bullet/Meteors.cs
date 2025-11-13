@@ -13,7 +13,7 @@ namespace MohawkGame2D
         Vector2 collision;
         Texture2D texture;
 
-        public void SetUp()
+        public void Setup()
         {
             texture = Graphics.LoadTexture("Textures/ship1.png");
         }

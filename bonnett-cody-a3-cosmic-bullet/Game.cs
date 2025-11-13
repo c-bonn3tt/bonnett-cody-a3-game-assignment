@@ -13,6 +13,7 @@ namespace MohawkGame2D
     {
         // Place your variables here:
         Player ship;
+        Background[] movingBackground = new Background[0];
         Rocket[] rockets = new Rocket[4];
         int rocketIndex = 0;
 
@@ -26,19 +27,24 @@ namespace MohawkGame2D
 
             ship = new Player();
             ship.Setup();
+
             for (int i = 0; i < rockets.Length; i++)
             {
-
+                rockets[i] = new Rocket();
+                rockets[i].Setup();
             }
         }
-
+        
+        // Baraa was here >:p
         /// <summary>
         ///     Update runs every frame.
         /// </summary>
         public void Update()
         {
             Window.ClearBackground(Color.Black);
+
             ship.Update();
+
             int ammo = 0;
 
             if (Input.IsKeyboardKeyPressed(KeyboardInput.Space)) SpawnRocket();
@@ -58,6 +64,9 @@ namespace MohawkGame2D
                 }
 
             }
+
+            //Move Player
+
         }
 
         void SpawnRocket()

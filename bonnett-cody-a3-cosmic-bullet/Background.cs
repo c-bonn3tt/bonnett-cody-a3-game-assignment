@@ -12,7 +12,7 @@ namespace MohawkGame2D
         Vector2 position;
         Vector2 velocity;
         Texture2D texture;
-        public void SetUp()
+        public void Setup()
         {
             texture = Graphics.LoadTexture("Textures/background.png");
         }
@@ -20,7 +20,7 @@ namespace MohawkGame2D
         public void Update()
         {
             Graphics.Rotation = 0.0f;
-            Graphics.Scale = 0.15f;
+            Graphics.Scale = 1f;
             Graphics.Draw(texture, position);
         }
     }
