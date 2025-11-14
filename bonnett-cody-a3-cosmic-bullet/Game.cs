@@ -25,8 +25,10 @@ namespace MohawkGame2D
             Window.SetTitle("Cosmic Bullet");
             Window.SetSize(800, 600);
 
-            ship = new Player();
-            ship.Setup();
+
+
+            movingBackground = new Background();
+            movingBackground.Setup();
 
             for (int i = 0; i < rockets.Length; i++)
             {
@@ -35,7 +37,6 @@ namespace MohawkGame2D
             }
         }
         
-        // Baraa was here >:p
         /// <summary>
         ///     Update runs every frame.
         /// </summary>
@@ -77,17 +78,6 @@ namespace MohawkGame2D
             Rocket rocket = new Rocket();
             
             //position for rockets to come from player
-            Vector2 centerScreen = Window.Size / 2.0f;
-
-            rocket.position = centerScreen;
-
-            Vector2 centerToMouse = Input.GetMousePosition() - centerScreen;
-            rocket.velocity = Vector2.Normalize(centerToMouse);
-
-            rockets[rocketIndex] = rocket;
-            rocketIndex++;
-
-            if (rocketIndex >= rockets.Length) rocketIndex = 0;
         }
 
     }

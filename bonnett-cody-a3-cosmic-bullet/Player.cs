@@ -14,11 +14,8 @@ namespace MohawkGame2D
         Vector2 size;
         public void Setup()
         {
-            float playerY = Window.Height / 2.0f - 30;
-            float playerX = Window.Width / 8.0f;
 
-            position.X = playerX;
-            position.Y = playerY;
+        
             texture = Graphics.LoadTexture("Textures/ship1.png");
             size = new Vector2(texture.Width, texture.Height);
         }
