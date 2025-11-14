@@ -10,12 +10,9 @@ namespace MohawkGame2D
     public class Player
     {
 
-        public float topEdge = 0.0f;
-        public float bottomEdge = 0.0f;
-
         Texture2D ship1;
 
-        Vector2 position;
+       public Vector2 shipPosition;
         Vector2 velocity;
         Vector2 collision;
         Vector2 size;

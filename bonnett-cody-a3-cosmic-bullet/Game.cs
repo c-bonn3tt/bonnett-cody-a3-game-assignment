@@ -25,8 +25,6 @@ namespace MohawkGame2D
             Window.SetTitle("Cosmic Bullet");
             Window.SetSize(800, 600);
 
-        
-
             movingBackground = new Background();
             movingBackground.Setup();
 

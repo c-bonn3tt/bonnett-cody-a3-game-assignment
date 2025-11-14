@@ -28,6 +28,8 @@ namespace MohawkGame2D
            DrawRocket();
            ProcessPhysics();
 
+           Physics();
+
            /* Graphics.Rotation = 0.0f;
             Graphics.Scale = 0.15f;
             Graphics.Draw(texture, position);*/
