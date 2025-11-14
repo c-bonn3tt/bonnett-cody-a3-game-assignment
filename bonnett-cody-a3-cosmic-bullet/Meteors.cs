@@ -22,5 +22,15 @@ namespace MohawkGame2D
         {
 
         }
+
+        void ProcessPhysics()
+        {
+
+        }
+
+        void ProcessCollision()
+        {
+
+        }
     }
 }

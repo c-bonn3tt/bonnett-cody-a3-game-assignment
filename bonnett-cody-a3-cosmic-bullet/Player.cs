@@ -9,27 +9,64 @@ namespace MohawkGame2D
 {
     public class Player
     {
+
+        public float topEdge = 0.0f;
+        public float bottomEdge = 0.0f;
+
+        Texture2D ship1;
+
         Vector2 position;
-        Texture2D texture;
+        Vector2 velocity;
+        Vector2 collision;
         Vector2 size;
+
+        float speed = 10.0f;
         public void Setup()
         {
-
-        
-            texture = Graphics.LoadTexture("Textures/ship1.png");
-            size = new Vector2(texture.Width, texture.Height);
+            position = new Vector2(100, 300);
+            ship1 = Graphics.LoadTexture("Textures/ship1.png");
+            size = new Vector2(ship1.Width, ship1.Height);
         }
 
         public void Update()
         {
-        
+           
+            ProcessInputs();
+            ProcessPhysics();
+            ProcessCollision();
+            DrawShip();
         }
 
-         public void DrawShip()
+        void ProcessInputs()
+        {
+            //move player up
+            if (Input.IsKeyboardKeyDown(KeyboardInput.W))
+            {
+                velocity.Y -= speed;
+            }
+            
+            // move player down
+            if (Input.IsKeyboardKeyDown(KeyboardInput.S))
+            {
+                velocity.Y += speed;
+            }
+        }
+
+        void ProcessPhysics()
+        {
+            position += velocity * Time.DeltaTime;
+        }
+      
+        void ProcessCollision()
+        {
+           
+        }
+       
+         void DrawShip()
         {
             Graphics.Rotation = 0.0f;
             Graphics.Scale = 0.15f;
-            Graphics.Draw(texture, position);
+            Graphics.Draw(ship1, position);
         }
     }
 }

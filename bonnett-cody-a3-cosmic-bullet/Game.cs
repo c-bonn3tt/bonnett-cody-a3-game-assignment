@@ -13,7 +13,7 @@ namespace MohawkGame2D
     {
         // Place your variables here:
         Player ship;
-        Background[] movingBackground = new Background[0];
+        Background movingBackground;
         Rocket[] rockets = new Rocket[4];
         int rocketIndex = 0;
 
@@ -25,7 +25,7 @@ namespace MohawkGame2D
             Window.SetTitle("Cosmic Bullet");
             Window.SetSize(800, 600);
 
-
+        
 
             movingBackground = new Background();
             movingBackground.Setup();
@@ -35,6 +35,9 @@ namespace MohawkGame2D
                 rockets[i] = new Rocket();
                 rockets[i].Setup();
             }
+            ship = new Player();
+            ship.Setup();
+
         }
         
         /// <summary>
@@ -43,7 +46,7 @@ namespace MohawkGame2D
         public void Update()
         {
             Window.ClearBackground(Color.Black);
-
+            movingBackground.Update();
             ship.Update();
 
             int ammo = 0;
@@ -66,7 +69,7 @@ namespace MohawkGame2D
 
             }
 
-            //Move Player
+
 
         }
 

@@ -10,8 +10,9 @@ namespace MohawkGame2D
     public class Rocket
     {
 
-        Vector2 position;
-        Vector2 velocity;
+        public Vector2 rocketPosition;
+        public Vector2 velocity;
+        Vector2 size = new Vector2();
         float speed = 1500.0f;
 
         Texture2D texture;
@@ -32,16 +33,20 @@ namespace MohawkGame2D
             Graphics.Draw(texture, position);*/
         }
 
-       public void ProcessPhysics()
+       void ProcessPhysics()
         {
-            position += speed * velocity * Time.DeltaTime;
+            rocketPosition += speed * velocity * Time.DeltaTime;
         }
 
-        public void DrawRocket()
+        void ProcessCollision()
+        {
+
+        }
+        void DrawRocket()
         {
             Graphics.Rotation = 0.0f;
-            Graphics.Scale = 0.1f;
-            Graphics.Draw(texture, position);
+            Graphics.Scale = 1.0f;
+            Graphics.Draw(texture, rocketPosition);
         }
     }
 }
