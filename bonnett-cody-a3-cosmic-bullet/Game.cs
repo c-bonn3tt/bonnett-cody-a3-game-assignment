@@ -12,6 +12,9 @@ namespace MohawkGame2D
     public class Game
     {
         // Place your variables here:
+        Vector2[] meteorPositions = [new Vector2(800, 200), new Vector2(800, 500), new Vector2(900, 300), new Vector2(900, 600), new Vector2(1000, 200), new Vector2(1000, 300)];
+        
+        MeteorManager manager;
         Player ship;
         Background movingBackground;
         Rocket[] rockets = new Rocket[4];
@@ -28,14 +31,21 @@ namespace MohawkGame2D
             movingBackground = new Background();
             movingBackground.Setup();
 
+            /*for (int i = 0; i < meteor.Length; i++)
+            {
+                meteor[i] = new Meteors();
+                meteor[i].Setup();
+            }
+
             for (int i = 0; i < rockets.Length; i++)
             {
                 rockets[i] = new Rocket();
                 rockets[i].Setup();
-            }
+            }*/
             ship = new Player();
             ship.Setup();
-
+            manager = new MeteorManager();
+            manager.Setup();
         }
         
         /// <summary>
@@ -46,40 +56,41 @@ namespace MohawkGame2D
             Window.ClearBackground(Color.Black);
             movingBackground.Update();
             ship.Update();
+            manager.Update();
+            //int ammo = 0;
 
-            int ammo = 0;
+            /* if (Input.IsKeyboardKeyPressed(KeyboardInput.Space)) SpawnRocket();
+             for (int i = 0; i < rockets.Length; i++)
+             {
+                 //skip the rocket if not spawned yet
+                 if (rockets[i] == null)
+                 {
+                     ammo++;
+                     continue;
+                 }
+                 rockets[i].Update();
 
-            if (Input.IsKeyboardKeyPressed(KeyboardInput.Space)) SpawnRocket();
-            for (int i = 0; i < rockets.Length; i++)
-            {
-                //skip the rocket if not spawned yet
-                if (rockets[i] == null)
-                {
-                    ammo++;
-                    continue;
-                }
-                rockets[i].Update();
+                 if (Input.IsKeyboardKeyPressed(KeyboardInput.R))
+                 {
+                     rockets = new Rocket[4];
+                 }
 
-                if (Input.IsKeyboardKeyPressed(KeyboardInput.R))
-                {
-                    rockets = new Rocket[4];
-                }
-
-            }
+             }*/
 
 
 
         }
 
-        void SpawnRocket()
-        {
+        /* void SpawnRocket()
+         {
 
-            if (rockets[rocketIndex] != null) return;
+             if (rockets[rocketIndex] != null) return;
 
-            Rocket rocket = new Rocket();
-            
-            //position for rockets to come from player
-        }
+             Rocket rocket = new Rocket();
+
+             //position for rockets to come from player
+             rocket.rocketPosition = ship.shipPosition;
+    }*/
 
     }
 

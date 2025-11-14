@@ -25,9 +25,7 @@ namespace MohawkGame2D
         public void Update()
         {
  
-           DrawRocket();
-           ProcessPhysics();
-
+           
            Physics();
 
            /* Graphics.Rotation = 0.0f;
@@ -35,12 +33,17 @@ namespace MohawkGame2D
             Graphics.Draw(texture, position);*/
         }
 
-       void ProcessPhysics()
+       void Physics()
         {
             rocketPosition += speed * velocity * Time.DeltaTime;
+
+            if (rocketPosition.X > Window.Width)
+            {
+
+            }
         }
 
-        void ProcessCollision()
+        void Collision()
         {
 
         }

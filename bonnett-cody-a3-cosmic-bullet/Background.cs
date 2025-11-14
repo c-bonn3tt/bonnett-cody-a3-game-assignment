@@ -24,7 +24,7 @@ namespace MohawkGame2D
             Graphics.Draw(texture, position);
         }
 
-        void ProcessMotion()
+        void Motion()
         {
 
         }
